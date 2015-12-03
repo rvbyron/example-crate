@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>example-crate Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../example-box.html">
+    <link rel="import" href="../example-crate.html">
+  </head>
+  <body unresolved style="background-color: #ccc;">
+  <div  style="max-width: 800px; background-color: white; margin: auto; padding: 20px;">
+Below you will see variations on styling the 'example-box'. I have 6 'example-box' defined in the index.html
+file. The first 3 are styled by using the attribute in the selector and the second 3 have the same styling applied
+using class selectors.<br><br>
+I also have an 'example-crate' defined in the index.html file. An 'example-crate' contains the same 6 'example-box's
+within it. However, the styling on 'example-box' does not get applied to those instances defined within the 'example-crate'<br><br>
+<b><i>I would like the component user to be able to style the boxes from outside the component (inside the index.html file).</i></b>
+I don't want the component user to have to know anything about the component itself other than the published way to style the
+example-box's within the example-crate.
+
+<br>
+    <style is="custom-style">
+      :root example-box[type=cardboard] {
+        --example-box-bgcolor: brown;
+      }
+      :root example-box[type=glass] {
+        --example-box-bgcolor: #ccf;
+      }
+      :root example-box[type=plastic] {
+        --example-box-bgcolor: green;
+      }
+
+      :root .example-box-type-cardboard {
+        --example-box-bgcolor: brown;
+      }
+      :root .example-box-type-glass {
+        --example-box-bgcolor: #ccf;
+      }
+      :root .example-box-type-plastic {
+        --example-box-bgcolor: green;
+      }
+
+      :root example-crate[type=cardboard] {
+        --example-box-bgcolor: brown;
+      }
+
+/*    I thought the following might work for the boxes inside the crate, but it didn't. */
+      :root example-crate example-box[type=cardboard] {
+        --example-box-bgcolor: brown;
+      }
+      :root example-crate example-box[type=glass] {
+        --example-box-bgcolor: #ccf;
+      }
+      :root example-crate example-box[type=plastic] {
+        --example-box-bgcolor: green;
+      }
+
+      :root example-crate .example-box-type-cardboard {
+        --example-box-bgcolor: brown;
+      }
+      :root example-crate .example-box-type-glass {
+        --example-box-bgcolor: #ccf;
+      }
+      :root example-crate .example-box-type-plastic {
+        --example-box-bgcolor: green;
+      }
+
+
+
+    </style>
+
+    <h2>example-box</h2>
+    <h4>Type Attribute Styling</h4>
+    <pre>&lt;example-box type="sometype"&gt;&lt;/example-box&gt; Some Type</pre>
+    <example-box type="cardboard"></example-box> Cardboard<br>
+    <example-box type="glass"></example-box> Glass<br>
+    <example-box type="plastic"></example-box> Plastic<br>
+    <h4>Class Styling</h4>
+    <pre>&lt;example-box class="example-box-type-someclass"&gt;&lt;/example-box&gt; Some Class</pre>
+    <example-box class="example-box-type-cardboard"></example-box> Cardboard<br>
+    <example-box class="example-box-type-glass"></example-box> Glass<br>
+    <example-box class="example-box-type-plastic"></example-box> Plastic<br>
+
+    <h2>example-crate (Simply a component containing example-box's)</h2>
+    example-create template contains the same 6 example-box's you see above with identical 'type's and 'class's,
+    however, the style gets lost on those example-box's. <br>
+    <example-crate></example-crate>
+  </div>
+  </body>
+</html>

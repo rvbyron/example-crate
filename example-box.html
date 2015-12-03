@@ -1,0 +1,32 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="example-box">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: var(--example-box-bgcolor);
+        width: 50px;
+        height: 25px;
+        text-align: center;
+      }
+      :host content {
+        background-color: var(--example-box-bgcolor);
+      }
+    </style>
+    <div class="content">BOX</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'example-box',
+    properties: {
+      type: {
+        type: String,
+        reflectToAttribute: true
+      }
+    }
+  });
+</script>

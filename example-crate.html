@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="example-box.html">
+
+<dom-module id="example-crate">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        box-sizing: border-box;
+        overflow: auto;
+        padding: 10px;
+        background-color: #ffc;
+      }
+    </style>
+    <h4>Type Attribute Styling</h4>
+    <pre>&lt;example-box type="sometype"&gt;&lt;/example-box&gt; Some Type</pre>
+    <example-box type="cardboard"></example-box> Cardboard<br>
+    <example-box type="glass"></example-box> Glass<br>
+    <example-box type="plastic"></example-box> Plastic<br>
+    <h4>Class Styling</h4>
+    <pre>&lt;example-box class="example-box-type-someclass"&gt;&lt;/example-box&gt; Some Class</pre>
+    <example-box class="example-box-type-cardboard"></example-box> Cardboard<br>
+    <example-box class="example-box-type-glass"></example-box> Glass<br>
+    <example-box class="example-box-type-plastic"></example-box> Plastic<br>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({is: 'example-crate'});
+</script>

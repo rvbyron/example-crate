@@ -7,8 +7,9 @@
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../example-box.html">
     <link rel="import" href="../example-crate.html">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   </head>
-  <body unresolved style="background-color: #ccc;">
+  <body unresolved style="background-color: #ccc; font-family: 'PT Sans';">
   <div  style="max-width: 800px; background-color: white; margin: auto; padding: 20px;">
 Below you will see variations on styling the 'example-box'. I have 6 'example-box' defined in the index.html
 file. The first 3 are styled by using the attribute in the selector and the second 3 have the same styling applied
@@ -66,18 +67,37 @@ example-box's within the example-crate.
         --example-box-bgcolor: green;
       }
 
-
-
     </style>
 
     <h2>example-box</h2>
     <h4>Type Attribute Styling</h4>
-    <pre>&lt;example-box type="sometype"&gt;&lt;/example-box&gt; Some Type</pre>
+      <style>
+          hh {
+              background-color: yellow;
+              font-weight: bold;
+              font-style: italic;
+              font-family: "PT Sans";
+          }
+      </style>
+    <pre>
+&lt;example-box type="<hh>sometype</hh>"&gt;&lt;/example-box&gt; Some Type
+&lt;style is="custom-style"&gt;
+  :root example-box[type=<hh>sometype</hh>] {
+      --example-box-bgcolor: red; <hh>&lt;- Different types have different background colors</hh>
+  }
+&lt;/style&gt;
+    </pre>
     <example-box type="cardboard"></example-box> Cardboard<br>
     <example-box type="glass"></example-box> Glass<br>
     <example-box type="plastic"></example-box> Plastic<br>
     <h4>Class Styling</h4>
-    <pre>&lt;example-box class="example-box-type-someclass"&gt;&lt;/example-box&gt; Some Class</pre>
+    <pre>&lt;example-box class="example-box-type-<hh>sometype</hh>"&gt;&lt;/example-box&gt; Some Type
+&lt;style is="custom-style"&gt;
+  :root example-box.example-box-type-<hh>sometype</hh> {
+    --example-box-bgcolor: red; <hh>&lt;- Different types have different background colors</hh>
+  }
+&lt;/style&gt;
+      </pre>
     <example-box class="example-box-type-cardboard"></example-box> Cardboard<br>
     <example-box class="example-box-type-glass"></example-box> Glass<br>
     <example-box class="example-box-type-plastic"></example-box> Plastic<br>
